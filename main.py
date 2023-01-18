@@ -4,7 +4,6 @@ from discord import app_commands
 from discord.app_commands import Choice
 import os
 import asyncio
-from brawlhalla import BrawlhallaClient
 
 TOKEN = "MTA0MjcyMDMwNzE3NTIzOTc0MA.GyFRJk.tKUaG0gAjtf2Fqc67AC1sIA0WZhVv5psHwpxhs"
 intents = discord.Intents.all()
@@ -38,5 +37,6 @@ async def main():
 @bot.tree.command(name="test", description="Just checking!")
 async def test(interaction: discord.Interaction):
     await interaction.response.send_message("WELCOME TO BRAWLHALLA")
+
 
 asyncio.run(main())
