@@ -55,8 +55,8 @@ class ranked(commands.Cog):
         res = requests.get(URL)
         r = res.json()
 
-        val1 = "*[no data]*"
-        val2 = "[*no data]*"
+        val1 = "[no data]"
+        val2 = "[no data]"
 
         rank_emojis = ['<:silver:1065959349014503474>',
                        '<:gold:1065959342957928539>',
@@ -106,7 +106,7 @@ class ranked(commands.Cog):
                               color=discord.Color.blue())
         embed.add_field(name="__**Ranked 1v1**__", value=val1, inline=True)
         embed.add_field(name="__**Ranked 2v2**__", value=val2, inline=True)
-        embed.set_thumbnail(url=interaction.guild.icon)
+        embed.set_thumbnail(url="https://cdn.discordapp.com/icons/1042714240039010315/da8b9c6d1a7c11f3ec0e8c58c0f21092.png?size=1024")
         embed.set_footer(text=f"ID: {user.id}", )
         await interaction.response.send_message(embed=embed)
 

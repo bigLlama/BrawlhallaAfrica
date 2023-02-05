@@ -116,10 +116,13 @@ class profile(commands.Cog):
         games = r['games']
         wrate = round(wins/games*100, 2)
 
-
-        clan = r['clan']['clan_name']
-        clan_xp = r['clan']['clan_xp']
-        pers_xp = r['clan']['personal_xp']
+        try:
+            clan = r['clan']['clan_name']
+        except:
+            clan = None
+        else:
+            clan_xp = r['clan']['clan_xp']
+            pers_xp = r['clan']['personal_xp']
 
 
         embed = discord.Embed(description=f"[**{member.name}'s profile "
@@ -130,13 +133,12 @@ class profile(commands.Cog):
                                             f"**Wins: ** ({'{:,}'.format(wins)} / {'{:,}'.format(games)})\n"
                                             f"**Winrate: **{wrate}%",
                                             inline=True)
-
-        embed.add_field(name=f"**__Clan: __** **<{clan}>**", value=
+        if clan is not None:
+            embed.add_field(name=f"**__Clan: __** **<{clan}>**", value=
                                             f"**Clan XP: **{'{:,}'.format(int(clan_xp))}\n"
                                             f"**Personal XP: **{'{:,}'.format(pers_xp)}",
                                             inline=True)
-
-        embed.set_thumbnail(url="img.png")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/icons/1042714240039010315/da8b9c6d1a7c11f3ec0e8c58c0f21092.png?size=1024")
         embed.set_footer(text=f"ID: {member.id}", )
         await interaction.response.send_message(embed=embed)
 
