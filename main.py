@@ -11,13 +11,13 @@ bot = commands.Bot(command_prefix=['!'], intents=intents, case_insensitive=True)
 bot.remove_command('help')
 
 
+
 @bot.event
 async def on_ready():
     print("Online!")
     try:
         synced = await bot.tree.sync()
         print(f"Synced {len(synced)} commands")
-        print()
     except Exception as e:
         print(e)
 
@@ -36,7 +36,6 @@ async def main():
 
 @bot.tree.command(name="test", description="Just checking!")
 async def test(interaction: discord.Interaction):
-    await interaction.response.send_message("WELCOME TO BRAWLHALLA")
-
+    await interaction.response.send_message("**WELCOME TO BRAWLHALLA**")
 
 asyncio.run(main())
