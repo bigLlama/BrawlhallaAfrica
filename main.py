@@ -5,7 +5,7 @@ from discord.app_commands import Choice
 import os
 import asyncio
 
-TOKEN = "MTA0MjcyMDMwNzE3NTIzOTc0MA.GyFRJk.tKUaG0gAjtf2Fqc67AC1sIA0WZhVv5psHwpxhs"
+TOKEN = TOKEN
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix=['!'], intents=intents, case_insensitive=True)
 bot.remove_command('help')
